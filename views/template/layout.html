@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="renderer" content="webkit"><!-- 指定网页使用webkit引擎渲染，只对360浏览器6.5+有效 -->
+    <meta http-equiv="Cache-Control" content="no-siteapp" /><!-- 禁止百度移动搜索转码-->
+    <meta name="format-detection" content="telephone=no, email=no" /> <!--禁止自动识别手机号-->
+    <link rel="stylesheet" href="../css/amazeui.min.css">
+    <link rel="stylesheet" href="../css/common/msg.css"><!--msg样式-->
+    <link rel="stylesheet" href="../css/common/rem.css">
+    <link rel="stylesheet" href="../css/common/common.css"><!--四期导航样式-->
+    <!--<script>-->
+        <!--var _hmt = _hmt || [];-->
+        <!--(function() {-->
+            <!--var hm = document.createElement("script");-->
+            <!--hm.src = "https://hm.baidu.com/hm.js?297ce5bc3469a754d9dc8feb6d149ebb";-->
+            <!--var s = document.getElementsByTagName("script")[0];-->
+            <!--s.parentNode.insertBefore(hm, s);-->
+        <!--})();-->
+    <!--</script>-->
+    {% block style %}{% endblock %}
+    {% block script %}{% endblock %}
+</head>
+<body class="base-common">
+    <!--[if lte IE 9]>
+    <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器。 请 <a
+            href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+        以获得更好的体验！</p>
+    <![endif]-->
+
+    {% block content %}{% endblock %}
+
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/amazeui.min.js"></script>
+    <script src="../js/msg.js"></script><!--msg效果-->
+    <script src="../js/nav.js"></script><!--四期导航效果-->
+    {% block bottomscript %}{% endblock %}
+</body>
+</html>

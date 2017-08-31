@@ -1,0 +1,73 @@
+﻿{% extends '../template/layout.html' %}
+{% block title %}{{ftitle}}{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="../css/article/article.css">
+{% endblock %}
+{% block content %}
+{% include "../template/nav.html" %}
+<div class="list">
+    <div class="nav"><a href="list?class=27">健康生活</a><a href="list?class=26">活动推荐</a><a href="list?class=28">健康问答</a></div>
+    <ul>
+        {% for li in list %}
+        <li><a href="/article/detail?id={{li.dataValues.id}}">
+            <img src="{{li.dataValues.titlepic}}"/>
+            <div class="word">
+                <h2>{{li.dataValues.title}}</h2>
+                <span>{{li.dataValues.ftitle}}</span><i><img src="../images/article/icon-eye.png"/>{{li.dataValues.onclick}}</i>
+            </div>
+        </a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+{% block bottomscript %}
+<script src="../js/getUrlParam.js"></script><!--获取url参数-->
+<script>
+    var count=0;
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            //$(document).scrollTop() 获取垂直滚动的距离
+            //$(document).scrollLeft() 这是获取水平滚动条的距离
+//            if ($(document).scrollTop() <= 0) {
+//                alert("滚动条已经到达顶部为0");
+//            }
+            if ($(document).scrollTop() >= $(document).height() - $(window).height()) {
+                count++;
+                $.ajax({
+                    url: '/article/load?class=27',
+                    type: "get",
+                    data: {"count":count},
+                    success: function (data){
+                        console.log(data);
+                        if(data.length==0){
+                            alert("没有更多了");
+                        }else{
+                            for (var i = 0; i < data.length; i++) {
+                                var content='<li><a href="/article/detail?id='+data[i].id+'">';
+                                content+='<img src="'+data[i].titlepic+'"/>';
+                                content+='<div class="word">';
+                                content+='<h2>'+data[i].title+'</h2>';
+                                content+='<span>'+data[i].ftitle+'</span><i><img src="../images/article/icon-eye.png"/>'+data[i].onclick+'</i>';
+                                content+='</div></a></li>';
+                                $("ul").append(content);
+                            }
+                        }
+                    },
+                    error: function () {
+                        console.log("服务器出错了请联系我们的工作人员");
+                    }
+                });
+            }
+        });
+    });
+//    $(document).ready(function(){
+//        var id=getUrlParam("class");
+//        $(".nav").children().removeClass("active");
+//        switch (id){
+//            case "26":$(".nav").children().eq(1).addClass("active");break;
+//            case "27":$(".nav").children().eq(0).addClass("active");break;
+//            case "28":$(".nav").children().eq(2).addClass("active");break;
+//        }
+//    });
+</script>
+{% endblock %}

@@ -1,0 +1,36 @@
+ <div class="comment">
+    <div class="list">
+        <!--<p class="nothing">还没有评论，来做第一个吃螃蟹的人吧</p>-->
+        <!--<div class="row">-->
+            <!--<div class="head"><img src="{{li.head}}"/></div>-->
+            <!--<div class="content">-->
+                <!--<div class="main" data-id="{{li.id}}">-->
+                    <!--<p>名字&nbsp;{{li.createdAt}}</p>-->
+                    <!--<p>{{li.content}}</p>-->
+                <!--</div>-->
+                <!--<ul>-->
+                    <!--<li data-id="{{li.id}}" data-userid="">-->
+                        <!--<p>评论评论的人的名字&nbsp;{{li.createdAt}}</p>-->
+                        <!--<p>{{li.content}}</p>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+    <div class="input">
+        <div class="text" contenteditable="true" placeholder="我也说一句..."></div><button class="send">发送</button>
+    </div>
+</div>
+<footer>
+    <p id="comment">评论</p><p id="collect">收藏</p>
+</footer>
+<script>
+    //评论框弹出
+    function commentIpt(){
+        $(".comment .input").css('display', 'flex');
+        $(".comment .input .text").focus();
+    }
+    $("#comment").click(function(){
+        commentIpt();
+    });
+</script>

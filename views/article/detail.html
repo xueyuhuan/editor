@@ -1,0 +1,16 @@
+﻿{% extends '../template/layout.html' %}
+{% block title %}文章预览{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="../css/article/article.css">
+<link rel="stylesheet" href="../css/common/footer.css">
+{% endblock %}
+{% block content %}
+{% include "../template/nav.html" %}
+<div class="detail"></div>
+{% endblock %}
+{% block bottomscript %}
+{% include "../template/footer.html" %}
+<script>
+    $(".detail").html(sessionStorage.text);
+</script>
+{% endblock %}

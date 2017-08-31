@@ -1,0 +1,99 @@
+.comment{
+    margin: 0 0 5rem 0;
+}
+/*评论列表*/
+.comment .list{
+    padding: 0 1rem;
+}
+.comment .list p.nothing{
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 1rem 0;
+}
+.comment .list .row{
+    display: flex;
+    padding: 1rem 0;
+    border-bottom: 1px #eee solid;
+}
+.comment .list .row .head img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    margin: 0 0.5rem 0 0;
+}
+.comment .list .row .content{
+    flex-grow: 1;
+}
+.comment .list .row .content p{
+    font-size: 1.2rem;
+    margin: 0 0 1rem 0;
+}
+.comment .list .row .content ul{
+    padding: 0;
+    margin: 0;
+}
+.comment .list .row .content ul li{
+    background: #f7f9fa;
+    padding: 1rem 1rem 0;
+    margin: 0;
+    list-style: none;
+}
+.comment .list .row .content ul li p{
+    margin: 0;
+}
+/*输入框*/
+.comment .input{
+    display: flex;
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0 0 0;
+}
+.comment .input .text{
+    width: 80%;
+    min-height: 3rem;
+    text-align: left;
+    padding: 0.5rem 1rem;
+    border: 1px #bbb solid;
+    border-radius: 0.5rem;
+}
+.comment .input .text:empty:before{
+    content: attr(placeholder);
+    color:#bbb;
+}
+.comment .input .text:focus:before{
+    content:none;
+}
+/*发送按钮*/
+.comment .input .send{
+    min-height: 3rem;
+    background: #fff;
+    padding: 0.5rem 1rem;
+    border: 1px #bbb solid;
+    border-radius: 0.5rem;
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1;
+    text-align: right;
+    padding: 1rem;
+    border-top: 1px #eee solid;
+}
+footer p{
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #666;
+    line-height: 1;
+    padding: 0.5rem 1rem;
+    border: 1px #bbb solid;
+    border-radius: 4px;
+    margin: 0 0 0 0.5rem;
+}

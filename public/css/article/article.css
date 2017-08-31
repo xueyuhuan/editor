@@ -1,0 +1,67 @@
+.list .nav{
+    display: flex;
+}
+.list .nav a{
+    flex-grow:1;
+    background: #ffffff;
+    font-size: 1.4rem;
+    line-height: 3.5rem;
+    color: #666;
+    text-align: center;
+}
+.list .nav a.active{
+    color: #0e90d2;
+}
+.list ul{
+    background: #edf2f5;
+    padding: 0.5rem 0.5rem 0;
+    margin: 0;
+    overflow: hidden;
+}
+.list ul li{
+    list-style: none;
+    background: #fff;
+    padding: 0.5rem;
+    margin: 0 0 0.5rem 0;
+}
+.list ul li a{
+    display: flex;
+    align-items: center;
+}
+.list ul li a img{
+    width: 6.5rem;
+    height: 5rem;
+    margin: 0 1rem 0 0;
+}
+.list ul li a .word{
+    width: 100%;
+    overflow: hidden;
+}
+.list ul li a .word h2{
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1;
+    white-space: nowrap;
+    color: #333;
+}
+.list ul li a .word span{
+    display: inline-block;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: #ff6b50;
+    padding: 0.2rem;
+    border: 1px #ff6b50 solid;
+}
+.list ul li a .word i{
+    display: flex;
+    align-items: center;
+    float: right;
+    font-style: normal;
+    font-size: 1.2rem;
+    color: #999;
+}
+.list ul li a .word i img{
+    width: 1.2rem;
+    height: auto;
+    margin: 0 0.6rem 0 0;
+}

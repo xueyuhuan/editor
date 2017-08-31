@@ -1,0 +1,11 @@
+/*黑色半透明提示框*/
+#msg{
+    position: fixed;
+    top: 30%;
+    left:50%;
+    transform: translate(-50%,0);
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+}

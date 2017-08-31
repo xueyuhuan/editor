@@ -1,0 +1,101 @@
+html,body{
+    max-width: 800px;
+    margin: 0 auto;
+}
+/*
+////////////////////公共-头部////////////////////
+*/
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+    background: #fff;
+    padding: 0 10px;
+    border-bottom: 1px #f5f5f5 solid;
+}
+header>:first-child{
+    height: 1.3rem;
+}
+header h1{
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #333;
+    line-height: 1;
+    margin: 0;
+}
+header>:last-child{
+    height: 1.4rem;
+}
+/*
+////////////////////公共-导航////////////////////
+*/
+nav{
+    display: none;
+    position: fixed;
+    top: 4rem;
+    z-index: 99;
+    width: 100%;
+    max-width:800px;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+nav .content{
+    background: #fff;
+    padding: 1.5rem 2rem 2.5rem;
+}
+nav .content input{
+    background: #f0f1f2 url("../../images/common/icon_search.png") no-repeat 1rem 0.8rem;
+    background-size: 1.2rem 1.2rem;
+    width: 73%;
+    height: 2.9rem;
+    padding:  0 2.6rem;
+    border: none;
+    margin:  0 0 2.9rem 0;
+}
+nav .content .row{
+    display: flex;
+}
+nav .content .row>a{
+    display: inline-block;
+    flex-grow: 1;
+    width: 33%;
+    line-height: 1;
+    text-align: center;
+}
+nav .content .level1 a{
+    font-size: 1.4rem;
+    color: #333;
+}
+nav .content .level2 a{
+    font-size: 1.1rem;
+    color: #999;
+}
+nav .content .margin25{
+    margin: 0 0 2.5rem 0;
+}
+nav .content .margin15{
+    margin: 0 0 1.5rem 0;
+}
+nav .content .row1{
+    margin: 0 0 2.5rem 0;
+}
+nav .content .row2{
+    margin: 0 0 1.5rem 0;
+}
+nav .content .row3{
+    margin: 0 0 2.5rem 0;
+}
+nav .content .row4{
+    margin: 0 0 1.5rem 0;
+}
+#search{
+    border: 0px;
+    height: 3rem;
+    margin-top: -3rem;
+    width: 5rem;
+    color: #FFFFFF;
+    margin-left: 1rem;
+    background-color: #6c7ed2;
+    border-radius:2rem;
+}

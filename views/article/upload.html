@@ -1,0 +1,106 @@
+﻿{% extends '../template/layout.html' %}
+{% block title %}文章发布{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="/css/editor.css">
+{% endblock %}
+{% block content %}
+<div class="model">
+    <button id="saveEye">护眼模式</button>
+</div>
+<div class="btn">
+    <button data-role="bold">加粗</button>
+    <button data-role="italic">斜体</button>
+    <button data-role="justifyCenter">居中</button>
+    <button data-role="justifyLeft">左对齐</button>
+    <button data-role="justifyRight">右对齐</button>
+    <button data-role="justifyFull">对齐</button>
+    <button data-role="hiliteColor">背景色</button>
+    <select id="hiliteColor"><option value="#fff">白色</option><option value="#000">黑色</option></select>
+    <button data-role="fontSize">字体大小</button>
+    <select id="fontSize">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+    </select>
+    <button data-role="foreColor">字体颜色</button>
+    <select id="foreColor"><option value="#fff">白色</option><option value="#000">黑色</option></select>
+    <button data-role="insertImage">插入图片</button>
+    <div class="img">
+        <input type="file" accept="image/*" onchange="previewImg(this,'.preview')"/>
+        <img class="preview" src=""/>
+        <button id="uploadImg">上传</button>
+    </div>
+</div>
+<div class="text" contentEditable="true"></div>
+<div class="control">
+    <button id="save">保存到session</button>
+    <a href="/article/detail" target="_blank">预览</a>
+</div>
+<div class="explain">
+    <p>背景色、字体颜色、字体大小是选择下拉列表，再点击按钮</p>
+    <p>图片上传的操作流程：①选择文件（旁边是预览）<br/>
+        ②上传图片（尽量不要同一秒内多次上传，返回/upload/article/数字.jpg表示成功<br/>
+        ③点击“插入图片”按钮
+    </p>
+    <p>点击“保存到session”，再点击预览即可实现预览</p>
+    <p>建议预览页f12打开调试模式，再选择模拟手机</p>
+</div>
+{% endblock %}
+{% block bottomscript %}
+<script>
+    var url;
+    $("#saveEye").click(function(){$("body").toggleClass("saveEye")});
+    $('.btn button').click(function() {
+        switch($(this).data('role')) {
+            case 'hiliteColor':
+            case 'fontSize':
+            case 'foreColor':
+                document.execCommand($(this).data('role'), false, $("#"+$(this).data('role')).val());
+                break;
+            case 'h1':
+            case 'h2':
+            case 'p':
+                document.execCommand('formatBlock', false, '<' + $(this).data('role') + '>');
+                break;
+            case 'insertImage':
+                document.execCommand('insertImage', false, url);
+                break;
+            default:
+                document.execCommand($(this).data('role'), false, null);
+                break;
+        }
+    });
+    $("#save").click(function(){
+        sessionStorage.text=$(".text").html();
+        console.log(sessionStorage.text);
+    });
+    function previewImg(input,obj) {
+        var reader = new FileReader();
+        reader.readAsDataURL(input.files[0]);//发起异步请求
+        reader.onload = function () {//读取完成后
+            $(obj).attr('src', this.result);
+        };
+    }
+    $("#uploadImg").click(function(){
+        $.ajax({
+            url: '/article/upload',
+            type: "POST",
+            cache: false,
+            data: {
+                img: $(".preview")[0].src
+            },
+            success: function (data) {
+                msg(data);
+                url=data;
+            },
+            error: function (data) {
+                msg("data");
+            }
+        });
+    });
+</script>
+{% endblock %}
